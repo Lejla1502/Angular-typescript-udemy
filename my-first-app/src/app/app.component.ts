@@ -11,12 +11,22 @@ export class AppComponent implements OnInit{
   }
   username="";
   isUsernameEmpty=true;
+  isParagraphShown=false;
 
   onButtonClickIfUsernameNotEmpty()
   {
       if(this.username!="")
       this.username="";
   }
+
+  onButtonclickedChangeParagraphStatus()
+  {
+    if(this.isParagraphShown)
+      this.isParagraphShown=false;
+    if(!this.isParagraphShown)
+      this.isParagraphShown=true;
+  }
+
 }
 
 
