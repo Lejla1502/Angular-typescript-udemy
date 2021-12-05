@@ -9,5 +9,5 @@
 </ng-template>
 <button class="btn btn-primary" [disabled]="!allowNewServer" (click)="onCreateServer()">Add button</button>
 <p>{{serverCreationStatus}}</p>
-<app-server *ngFor="let srv of servers">{{srv.serverName}}</app-server>
+<app-server *ngFor="let srv of servers"><p>{{srv.serverName}}</p></app-server>
 

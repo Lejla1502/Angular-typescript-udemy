@@ -3,16 +3,25 @@ import { Component, OnInit } from '@angular/core';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  styles: ['.white{color:white;}']
 })
 export class AppComponent implements OnInit{
-  ngOnInit(): void {
-    throw new Error('Method not implemented.');
-  }
+ 
   username="";
   isUsernameEmpty=true;
-  isParagraphShown=false;
+  isParagraphShown=true;
 
+  buttonClicks:Array<any>=[];
+
+  counter:number=1;
+
+  ngOnInit(): void {
+    
+  }
+
+  constructor(){
+    this.counter=1;
+  }
   onButtonClickIfUsernameNotEmpty()
   {
       if(this.username!="")
@@ -23,8 +32,13 @@ export class AppComponent implements OnInit{
   {
     if(this.isParagraphShown)
       this.isParagraphShown=false;
-    if(!this.isParagraphShown)
+    else
       this.isParagraphShown=true;
+
+      this.buttonClicks.push(this.counter);
+      this.counter++;
+      console.log(this.counter);
+      
   }
 
 }

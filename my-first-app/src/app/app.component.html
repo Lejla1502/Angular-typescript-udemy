@@ -57,12 +57,17 @@
           <li>Starting at the 5th log item, give all future log items a blue background (via ngStyle) and white color (ngClass)</li>
         </ol>
        <hr>
-       <button>Display details</button>
-       <p *ngIf="isParagraphShown; else noParagraph">secret password=tuna</p>
-       <ng-template #noParagraph>
-        <p></p>
+       <button (click)="onButtonclickedChangeParagraphStatus()">Display details</button>
+       <p *ngIf="isParagraphShown; else noParagraph" >secret password=tuna {{isParagraphShown}}</p>
+       <ng-template #noParagraph >
+        <p>{{isParagraphShown}}</p>
        </ng-template>
-       
+       <div *ngFor="let clicks of buttonClicks; let i=index">
+        <p *ngIf="i>=4; else noStyle" [ngStyle]="{backgroundColor:'blue'}" [ngClass]="'white'"> Number of clicks: {{clicks}}</p>
+        <ng-template #noStyle>
+          <p>Number of clicks: {{clicks}}</p>
+        </ng-template>
+        </div>
       </div>
     </div>
   </div>
